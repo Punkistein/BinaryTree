@@ -9,7 +9,7 @@ public class App {
     static VistaPrincipal objVP = new VistaPrincipal();
     
     public static void main(String[] args) {
-        System.out.println("cambio en branch Saul");
+        System.out.println("cambio en branch Main");
         objVP.setVisible(true);
     }    
     

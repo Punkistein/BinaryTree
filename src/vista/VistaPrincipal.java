@@ -1,11 +1,13 @@
 package vista;
 
 import controlador.ControlInputs;
+import controlador.ControlTabla;
 import javax.swing.JOptionPane;
 
 public class VistaPrincipal extends javax.swing.JFrame {
 
     public ControlInputs objControlInputs;
+    public ControlTabla objControlTabla;
     JOptionPane mensajeMostrar;
     
     public VistaPrincipal() {
@@ -89,7 +91,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         if (objControlInputs.mensajeUsuario != null) {
             mensajeMostrar.showMessageDialog(null, objControlInputs.mensajeUsuario);
         } else {
-            
+            objControlTabla = new ControlTabla();
+            jtblTree.setModel(objControlTabla.construirHeader(Integer.parseInt(jtfLongitud.getText()), 1));
         }
     }//GEN-LAST:event_jbtnMostrarArbolActionPerformed
 
@@ -123,10 +126,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 new VistaPrincipal().setVisible(true);
             }
         });
-    }
-    
-    public void lol(){
-        System.out.println("lol");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -15,12 +15,6 @@ public class Lista {
             miLista[i] = this.valorLista;
         }
     }
-    
-    public void imprimirListaConsola(){
-        for (int i = 0; i < miLista.length; i++) {
-//            System.out.print(this.valorLista + " ");
-        }
-    }
 
     public int getLongitudLista() {
         return longitudLista;

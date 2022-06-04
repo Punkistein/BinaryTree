@@ -5,7 +5,7 @@ import vista.VistaPrincipal;
 public class App {
     
     static VistaPrincipal objVP = new VistaPrincipal();
-    
+    // esta es mi braich
     public static void main(String[] args) {
         objVP.setVisible(true);
     }

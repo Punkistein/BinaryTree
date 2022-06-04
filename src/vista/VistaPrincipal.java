@@ -69,6 +69,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jlblValor.setText("Valor");
         jPanel1.add(jlblValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 90, -1, -1));
         jPanel1.add(jtfValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 120, 100, -1));
+
+        jtfLongitud.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtfLongitudMouseClicked(evt);
+            }
+        });
         jPanel1.add(jtfLongitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 100, -1));
 
         jbtnMostrarArbol.setBackground(new java.awt.Color(51, 177, 0));
@@ -143,7 +149,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
         } else {
             objControlTabla = new ControlTabla();
             jtblTree.setModel(objControlTabla.construirHeader(Integer.parseInt(jtfLongitud.getText()), 0));
-            jtblTree.setModel(objControlTabla.llenarFila(Integer.parseInt(jtfLongitud.getText()), Integer.parseInt(jtfValor.getText())));
+            for (int i = 0; i < objControlInputs.longitudDefinitiva; i++) {
+                jtblTree.setModel(objControlTabla.llenarFila(Integer.parseInt(jtfLongitud.getText()), Integer.parseInt(jtfValor.getText())));
+            }
+            JOptionPane.showMessageDialog(null, "El número total de preguntas fue: " + objControlInputs.validacionSuperior(Integer.parseInt(jtfLongitud.getText())));
         }
     }//GEN-LAST:event_jbtnMostrarArbolActionPerformed
 
@@ -189,37 +198,41 @@ public class VistaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jPanel1MouseDragged
 
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jtfLongitudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtfLongitudMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfLongitudMouseClicked
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VistaPrincipal().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new VistaPrincipal().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

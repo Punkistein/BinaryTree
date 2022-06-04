@@ -1,11 +1,7 @@
 package modelo;
 
-import javax.swing.table.DefaultTableModel;
-import controlador.ControlInputs;
+import vista.VistaPrincipal;
 
-public class Tabla extends DefaultTableModel{
-        
-    public Tabla(String[] columnNames, int rowCount) {
-        super(columnNames, rowCount);
-    }    
+public class Tabla {
+    
 }

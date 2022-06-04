@@ -5,6 +5,7 @@ import modelo.Lista;
 public class ControlInputs {
 
     public String mensajeUsuario;
+    public int longitudDefinitiva;
     Lista objLista;
     
     public ControlInputs(String longitudString, String valorString) {  
@@ -14,13 +15,20 @@ public class ControlInputs {
             int valor = Integer.parseInt(valorString);
             if (validacionMultiplo(longitud)) {
                 if (validacionRangoLongitud(longitud) && validacionRangoValor(valor)) {
-                    objLista = new Lista(longitud, valor);
+                    if (validacionSuperior(longitud) != 0) {
+                        longitudDefinitiva = validacionSuperior(longitud);
+                        objLista = new Lista(longitud, valor);
+                    } else {
+                        mensajeUsuario = "Debe ingresar una longitud que sea recursivamente"
+                                + " divisible para 2 y que no haya un resto de la división."
+                                + "\n La longitud ingresada '" + longitud + "' no cumple con este criterio.";
+                    }
                 } else {
                     mensajeUsuario = "La longitud la lista debe estar entre 8 y 128"
                             + " y el valor debe ser un número entre 0 y 9";
                 }
             } else {
-                mensajeUsuario = "La longitud de la lista debe ser múltiplo de 8";
+                mensajeUsuario = "La longitud de la lista debe ser múltiplo de 8 y mayor a 8";
             }
         } else {
             mensajeUsuario = "Ingrese solo números en ambos campos";
@@ -49,6 +57,24 @@ public class ControlInputs {
             return true;
         } else {
             return false;
+        }
+    }
+    
+    public int validacionSuperior(int longitudIngresada){
+        int filasPorAgregar = 0;
+        int restoFinal = 0;
+        
+        for (int i = longitudIngresada; i >= 1; i--) {
+            if (i == (longitudIngresada/2)) {
+                restoFinal += longitudIngresada%2;
+                filasPorAgregar++;
+                longitudIngresada = i;
+            }
+        }
+        if (restoFinal != 0) {
+            return 0;
+        } else {
+            return filasPorAgregar;
         }
     }
     

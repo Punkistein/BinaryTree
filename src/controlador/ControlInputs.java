@@ -1,6 +1,5 @@
 package controlador;
 
-import javax.swing.JOptionPane;
 import modelo.Lista;
 
 public class ControlInputs {
@@ -16,7 +15,6 @@ public class ControlInputs {
             if (validacionMultiplo(longitud)) {
                 if (validacionRangoLongitud(longitud) && validacionRangoValor(valor)) {
                     objLista = new Lista(longitud, valor);
-                    objLista.imprimirListaConsola();
                 } else {
                     mensajeUsuario = "La longitud la lista debe estar entre 8 y 128"
                             + " y el valor debe ser un número entre 0 y 9";

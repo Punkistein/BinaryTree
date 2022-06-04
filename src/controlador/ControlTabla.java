@@ -9,9 +9,6 @@ public class ControlTabla{
     Tabla objTabla;
     VistaPrincipal objVista;
     
-    //desde la vista paso longitud para construir
-    //los P con el metodo de esta clase
-    
     public DefaultTableModel construirHeader(int columnas, int filas){
         
         String[] header = new String[columnas];
@@ -21,4 +18,18 @@ public class ControlTabla{
         objTabla = new Tabla(header, filas);
         return objTabla.getModeloHeaderInicial();
     }
+    
+    public DefaultTableModel llenarFila(int columnas, int valor){
+        int[] filaValoresInt = new int[columnas];
+        Object[] filaValoresObj;
+        for (int i = 0; i < filaValoresInt.length; i++) {
+            filaValoresInt[i] = valor;
+        }
+        filaValoresObj = new Object[filaValoresInt.length];
+        for (int i = 0; i < columnas; i++) {
+            filaValoresObj[i] = filaValoresInt[i];
+        }
+        return objTabla.llenarTabla(filaValoresObj);
+    }
+    
 }

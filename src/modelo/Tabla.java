@@ -1,18 +1,25 @@
 package modelo;
 
 import javax.swing.table.DefaultTableModel;
-import vista.VistaPrincipal;
 
 public class Tabla{
+    
     private DefaultTableModel modeloHeaderInicial;
-
+    int[] filaValoresInt;
+    
     public Tabla(String[] columnas, int filas) {
         modeloHeaderInicial = new DefaultTableModel(columnas, filas);
-//        VistaPrincipal.jtblTree.setModel(table_model);
     }
+    
+    public Tabla(){};
 
     public DefaultTableModel getModeloHeaderInicial() {
         return modeloHeaderInicial;
     }
     
+    public DefaultTableModel llenarTabla(Object[] filaValoresObj){
+        modeloHeaderInicial.addRow(filaValoresObj);
+        return modeloHeaderInicial;
+    }
+
 }

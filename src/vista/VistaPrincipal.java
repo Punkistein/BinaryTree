@@ -22,7 +22,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jlblValor = new javax.swing.JLabel();
         jtfValor = new javax.swing.JTextField();
         jtfLongitud = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jbtnMostrarArbol = new javax.swing.JButton();
+        jspScrollPane = new javax.swing.JScrollPane();
+        jtblTree = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,17 +44,29 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jlblValor.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
         jlblValor.setForeground(new java.awt.Color(255, 255, 255));
         jlblValor.setText("Valor");
-        jPanel1.add(jlblValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, -1, -1));
-        jPanel1.add(jtfValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 70, -1));
+        jPanel1.add(jlblValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, -1));
+        jPanel1.add(jtfValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 70, -1));
         jPanel1.add(jtfLongitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 70, -1));
 
-        jButton1.setText("Cargar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbtnMostrarArbol.setText("Mostrar Árbol");
+        jbtnMostrarArbol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbtnMostrarArbolActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, -1, -1));
+        jPanel1.add(jbtnMostrarArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 130, 30));
+
+        jtblTree.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jspScrollPane.setViewportView(jtblTree);
+
+        jPanel1.add(jspScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 540, 250));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,24 +76,23 @@ public class VistaPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbtnMostrarArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnMostrarArbolActionPerformed
 
         objControlInputs = new ControlInputs(jtfLongitud.getText(), jtfValor.getText());
         if (objControlInputs.mensajeUsuario != null) {
             mensajeMostrar.showMessageDialog(null, objControlInputs.mensajeUsuario);
+        } else {
+            
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbtnMostrarArbolActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -111,13 +124,19 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void lol(){
+        System.out.println("lol");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jbtnMostrarArbol;
     private javax.swing.JLabel jlblLongitud;
     private javax.swing.JLabel jlblTema;
     private javax.swing.JLabel jlblValor;
+    private javax.swing.JScrollPane jspScrollPane;
+    public static javax.swing.JTable jtblTree;
     private javax.swing.JTextField jtfLongitud;
     private javax.swing.JTextField jtfValor;
     // End of variables declaration//GEN-END:variables

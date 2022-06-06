@@ -1,10 +1,15 @@
 package controlador;
 
+import java.awt.Color;
+import java.awt.Component;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import vista.VistaPrincipal;
 import modelo.Tabla;
 
-public class ControlTabla{
+public class ControlTabla extends DefaultTableCellRenderer{
     
     Tabla objTabla;
     VistaPrincipal objVista;
@@ -31,5 +36,4 @@ public class ControlTabla{
         }
         return objTabla.llenarTabla(filaValoresObj);
     }
-    
 }

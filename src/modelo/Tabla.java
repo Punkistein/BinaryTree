@@ -4,22 +4,27 @@ import javax.swing.table.DefaultTableModel;
 
 public class Tabla{
     
-    private DefaultTableModel modeloHeaderInicial;
-    int[] filaValoresInt;
+    private DefaultTableModel laTabla;
     
     public Tabla(String[] columnas, int filas) {
-        modeloHeaderInicial = new DefaultTableModel(columnas, filas);
+        laTabla = new DefaultTableModel(columnas, filas);
     }
+    
+    //8 -> 3
+    //16 -> 4
+    //32 -> 5
+    //64 -> 6
+    //128 -> 7
     
     public Tabla(){};
 
     public DefaultTableModel getModeloHeaderInicial() {
-        return modeloHeaderInicial;
+        return laTabla;
     }
     
     public DefaultTableModel llenarTabla(Object[] filaValoresObj){
-        modeloHeaderInicial.addRow(filaValoresObj);
-        return modeloHeaderInicial;
+        laTabla.addRow(filaValoresObj);
+        return laTabla;
     }
 
 }

@@ -2,8 +2,12 @@ package vista;
 
 import controlador.ControlInputs;
 import controlador.ControlTabla;
+import controlador.ControladorCeldas;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellRenderer;
 import modelo.Tabla;
 
 public class VistaPrincipal extends javax.swing.JFrame {
@@ -12,6 +16,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public ControlTabla objControlTabla;
     public Tabla objTabla = new Tabla();
     JOptionPane mensajeMostrar;
+    static public int longitudDefi;
     int xx, xy; //variables para obtener la posicion actual de la ventana
     
     public VistaPrincipal() {
@@ -107,6 +112,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
             }
         ));
+        jtblTree.setFocusable(false);
+        jtblTree = new javax.swing.JTable(){
+            public boolean isCellEditable(int row, int colum){
+                return false;}};
+        jtblTree.getTableHeader().setReorderingAllowed(false);
         jspScrollPane.setViewportView(jtblTree);
 
         jPanel1.add(jspScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 1170, 520));
@@ -151,6 +161,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
             jtblTree.setModel(objControlTabla.construirHeader(Integer.parseInt(jtfLongitud.getText()), 0));
             for (int i = 0; i < objControlInputs.longitudDefinitiva; i++) {
                 jtblTree.setModel(objControlTabla.llenarFila(Integer.parseInt(jtfLongitud.getText()), Integer.parseInt(jtfValor.getText())));
+                longitudDefi = Integer.parseInt(jtfLongitud.getText());
+                //aqui se pintan
+                ControladorCeldas a = new ControladorCeldas();
+                jtblTree.setDefaultRenderer(Object.class, a);
             }
             JOptionPane.showMessageDialog(null, "El número total de preguntas fue: " + objControlInputs.validacionSuperior(Integer.parseInt(jtfLongitud.getText())));
         }
@@ -244,7 +258,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jlblValor;
     private javax.swing.JScrollPane jspScrollPane;
     public static javax.swing.JTable jtblTree;
-    private javax.swing.JTextField jtfLongitud;
+    public javax.swing.JTextField jtfLongitud;
     private javax.swing.JTextField jtfValor;
     // End of variables declaration//GEN-END:variables
 }

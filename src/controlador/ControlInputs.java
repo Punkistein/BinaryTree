@@ -34,7 +34,9 @@ public class ControlInputs {
             mensajeUsuario = "Ingrese solo números en ambos campos";
         }
     }
-        
+       
+    public ControlInputs(){};
+    
     public boolean validacionNumerica(String longitudIngresada){
         try { 
           Integer.parseInt(longitudIngresada); 
